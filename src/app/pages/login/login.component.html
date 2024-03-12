@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form [formGroup]="userConnect" >
+					<label for="chk" aria-hidden="true">Connexion</label>
+					<small *ngIf="userConnect.controls['email'].dirty && userConnect.hasError('required', 'email')" class="text-danger">* L'email est réquis</small>
+					<input type="email" name="email"  formControlName="email" required="">
+					<small *ngIf="userConnect.controls['password'].dirty && userConnect.hasError('required', 'password')"class="text-danger">* Le mot de passe est réquis</small>
+					<input type="password" formControlName="password" required="">
+					<button class="btn btn-primary" type="submit" (click)="onSubmitForm()" >Se connecter</button>
+          			<p class="mb-0"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vous n'avez pas de compte? <a (click)="aller_a_register()" class="text-white-50 fw-bold" >S'inscrire</a>
+				</form>
+			</div>
+
+			<div class="login">
+				<form>
+					<label for="chk" aria-hidden="true">ContactFacile</label>
+					<button>Login</button>
+				</form>
+			</div>
+	</div>
+</body>
+
+</html>
